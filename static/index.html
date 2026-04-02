@@ -2,9 +2,39 @@
 <html>
 <head>
     <title>Snake-Stack</title>
+    <link rel="stylesheet" href="index.css">
+    <script src="index.js"></script>
 </head>
 <body>
-    <h1>Snake-Stack🐍</h1>
-
+    <h1 id="name">Snake-Stack🐍 </h1>
+    <div class="user-popup" id="popup">
+    <h3 id="name">Enter your UserName:</h3>
+    <input id="user" type="text"><br><br>
+    <button onclick="validUser()" id="next">Next</button> 
+    </div>
+    <div class="homepg" id="hpg"> 
+                <button onclick="displayRules()" id="rules">Rules</button>
+                <button onclick="startGame()" id="game">Start</button>
+                <button onclick="showProfile()" id="profile">Profile</button>
+                 
+    </div>
+   <div class="Rules" id="Rules">
+                    <h2>Rules to Play:</h2>
+                    <p>
+                        1.The head of the snake continually moves forward, unable to stop, growing longer.<br>
+                        2.Snake can be steered up,down,left,right by either using arrow keys or by using WSAD respectively.<br>
+                        3.Food appears at random empty cells when the snake eats food.<br>
+                        4.Carrot (health +1); Pumpkin Pie (health +3); Golden Apple (immunity for 10 seconds).<br>
+                        5.If not immune, the snake can die by: hitting a wall, or colliding with its own body.<br>
+                        NOTE: Score = health = length of snake
+                    </p><br><br>
+                    <button onclick="closeRules()">Close</button>
+                </div>
+    <div class="game" id="game">
+        <canvas id="canvas" width="400" height="400"></canvas>   
+        
+        
+        <div>
+    
 </body>
 </html>
