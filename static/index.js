@@ -41,7 +41,7 @@ var gameOver = false;
 
     placeFood();
     document.addEventListener("keyup", changeDirection);
-    setInterval(update, 1000/10);
+    setInterval(update, 1300/10);
 
 function update() {
     if (gameOver) {
@@ -85,7 +85,7 @@ context.stroke();
     for (let i = 0; i < snakeBody.length; i++) {
         context.fillRect(snakeBody[i][0], snakeBody[i][1], blockSize, blockSize);
     }
-    if (snakeX < 0 || snakeX > cols*blockSize || snakeY < 0 || snakeY > rows*blockSize) {
+    if (snakeX < 0 || snakeX >= cols*blockSize || snakeY < 0 || snakeY >= rows*blockSize) {
         gameOver = true;
         alert("Game Over");
     }
