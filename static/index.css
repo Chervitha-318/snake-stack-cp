@@ -1,0 +1,85 @@
+#name{
+    text-align:center;
+    font-size: 75px;
+
+}
+#user{
+    text-align:center;
+}
+.user-popup {
+    width: 450px;
+    margin: 100px auto;        /* centers box */
+    padding: 100px;
+    background-color:rgb(97, 143, 29) ;
+    border-radius: 10px;       /* rounded corners */
+    box-shadow: 0 4px 10px #ef535333;  /* shadow */
+    
+    #user{
+        font-size:20px;
+        display: block;
+        margin: 10px auto;
+        text-align: center;
+        
+    }
+    #name{
+        font-size:35px;
+        text-align:center;
+    }
+    #next{
+       display: block;
+       margin: 20px auto;
+       font-size: 20px;
+    }
+}
+body {
+    background-image: url("bg-img.png");
+    background-size: cover;    
+    background-position: center; 
+    background-repeat: no-repeat;
+     background-attachment: fixed;
+}
+.homepg {
+    width: 450px;
+    margin: 100px auto;        /* centers box */
+    padding: 100px;
+    background-color:rgb(97, 143, 29) ;
+    border-radius: 10px;       /* rounded corners */
+    box-shadow: 0 4px 10px #ef535333;  /* shadow */}
+#hpg {
+    display: none;
+}
+#Rules {
+    display: none;
+}
+.Rules {
+    width:500px;
+    margin:50px auto;  /* centers box */
+    padding: 100px;
+    background-color:rgb(97, 143, 29) ;
+    border-radius: 10px;       /* rounded corners */
+    box-shadow: 0 4px 10px #ef535333;  /* shadow */}
+button {
+    padding: 12px 25px;      /* size */
+    font-size: 18px;         /* text size */
+    background-color: #4CAF50;  /* green color */
+    color: white;            /* text color */
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin: 10px;
+}
+button:hover {
+    background-color: #45a049;
+}
+#Rules p {
+    font-size: 16px;
+}
+#canvas {
+    background-color:white;
+    display: block;
+    margin: 20px auto;
+}
+#canvas {
+    display:none;
+}
+
