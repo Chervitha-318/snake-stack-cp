@@ -1,10 +1,30 @@
-from flask import Flask, send_from_directory
+from flask import Flask, request, jsonify
+from datetime import datetime
+from flask_cors import CORS
+app = Flask(__name__)
+CORS(app)
+@app.route("/save_score", methods=["POST"])
+def save_score():
+    data = request.get_json()
 
-app = Flask(__name__, static_folder="static")
+    name = data.get("name")
+    score = data.get("score")
+    cause = data.get("cause")
+    duration = data.get("duration")
 
-@app.route("/")
-def home():
-    return send_from_directory("static", "index.html")
+    
+    timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+
+    
+    line = f"[{timestamp}] {name} | {score} | {cause.upper()} | {duration}\n"
+
+    
+    with open("history.txt", "a") as file:
+        file.write(line)
+
+    print("Saved:", line)
+
+    return jsonify({"message": "Saved!"})
 
 if __name__ == "__main__":
     app.run(debug=True)
