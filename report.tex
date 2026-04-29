@@ -1,0 +1,165 @@
+\documentclass[12pt]{article}
+
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\usepackage{titlesec}
+
+\title{\textbf{Snake-Stack Project Report}}
+\author{Chervitha and Prathyusha}
+\date{April 28,2026}
+
+\begin{document}
+
+\maketitle
+
+\tableofcontents
+\newpage
+
+
+\section{Introduction}
+ The project is to build a browser-based Snake game with a full three-layer architecture: 
+ 
+
+\begin{itemize}
+    \item JavaScript frontend that the player interacts with, a Python (Flask) backend that receives and stores game results, and a Bash administration script for inspecting and managing stored data from the terminal
+    \item Each layer has a single, well-defined responsibility and must not reach into the concerns of another layer
+    \item JavaScript does not know how scores are saved. The Bash script does not know how the game works. Flask sits in between and connects them
+\end{itemize}
+
+
+
+
+\section{Installation and Running Instructions}
+
+\begin{itemize}
+    \item Clone the repository
+    \item Make sure  Python 3.10 and Flask (v2.x) is installed 
+    \item Run backend:
+\begin{verbatim}
+python3 app.py
+\end{verbatim}
+    \item The game is accessible at http://127.0.0.1:5000 once the server is running
+
+\end{itemize}
+
+
+\section{Code structure}
+
+\begin{itemize}
+    \item \textbf{app.py} – Flask backend handling API requests
+    \item \textbf{static/index.js} – Game logic and frontend interactions
+    \item \textbf{static/index.css} – Styling and UI
+    \item \textbf{static/index.html} – Divisions and Headings
+    \item \textbf{history.txt} – Stores game data
+    \item \textbf{bash scripts} – To get Userdata
+\end{itemize}
+
+\section{API Design}
+
+\begin{itemize}
+    \item \texttt{/save\_score} (POST): Stores game results
+    \item \texttt{/get\_profile} (GET): Returns user data
+\end{itemize}
+
+% =========================
+\section{Data Storage Format}
+
+Each game is stored as:
+
+\begin{verbatim}
+[YYYY-MM-DD HH:MM:SS] username | score | cause | duration
+\end{verbatim}
+
+\textbf{Reasons:}
+\begin{itemize}
+    \item Human readable
+    \item Easy parsing with Bash tools
+    \item Fixed delimiter simplifies extraction
+\end{itemize}
+
+% =========================
+\section{Features Implemented}
+
+\begin{itemize}
+    \item \textbf{Username Input Box:}
+    At the start, a username box appears.If left empty gives a warning saying please enter username!.
+    
+    \item \textbf{Home Page:}
+    After entering username, the homepage appears containing three options:
+    \begin{itemize}
+        \item \textbf{Rules:} Displays rules for the game in a seperate box.
+        \item \textbf{Start:} Launches the game and initialize the canvas.
+        \item \textbf{Profile:} This gets the data from backend and displays username,highscore,total games played,last score and last cause.
+        This feature demonstrates frontend-backend interaction using API calls.
+    \end{itemize}
+
+    \item \textbf{Game over Box:}
+    At the end of each game, a box appears:
+    \begin{itemize}
+        \item Final score
+        \item Time survived
+        \item Cause of death
+        \item Timestamp
+        \item Overall High score of the user
+        \item Current session high score of the user
+    \end{itemize}
+\end{itemize}
+
+
+\section{Hurdles faced}
+
+\begin{itemize}
+    \item \textbf{Javascript}
+    \begin{itemize}
+    \item Switching from one  page to the other ,that is hiding the userbox after switching to homepage and rest like that.
+    \item Drawing  grid canvas and confetti canvas. 
+    \item Logic of Body movement of snake when it eats the food.
+    \item Giving immunity when immune
+    \end{itemize}
+    \item \textbf{Flask}
+    \begin{itemize}
+    \item Learning Flask
+    \end{itemize}
+    \item \textbf{Bash}
+    \begin{itemize}
+    \item Thinking of edge cases
+    \end{itemize}
+    \item \textbf{CSS}
+    \begin{itemize}
+    \item CSS of entire project
+    \end{itemize}
+\end{itemize}
+
+
+
+
+\section{What we would do differently with 10 more hours}
+If there was extra time,we would have made the following improvements:
+
+\begin{itemize}
+    \item Leaderborad box showing top players globally
+    \item More Menu options in bash like median,distributions...
+    \item Adding medium level with walls and hard level with moving walls
+\end{itemize}
+
+\section{External Libraries Used}
+
+\begin{itemize}
+    \item Flask (v2.x): Used to build backend server and define API endpoints.
+\end{itemize}
+
+No external JavaScript libraries were used. 
+
+No external Bash tools were used beyond standard commands such as awk, sed, grep, sort, less.
+
+\section{References}
+
+\begin{itemize}
+    \item Flask: \url{https://flask.palletsprojects.com/en/stable/}
+    \item JavaScript: \url{https://developer.mozilla.org/}
+    \item Bash: \url{https://www.gnu.org/software/bash/manual/}
+    \item HTML,CSS,JavaScript: \url{https://www.w3schools.com/}
+\end{itemize}
+
+\end{document}
